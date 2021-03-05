@@ -4,7 +4,7 @@ A template to realize a cheat sheet.
 
 ## Dependencies
 
-* [python 3.9](https://www.python.org/)
+* [python v3.9](https://www.python.org/)
 * [pygments v2.7.2 ](https://github.com/pygments/pygments)
 * [minted v2.5](https://github.com/gpoore/minted)
 
@@ -84,8 +84,6 @@ I implemented 4 types of blocks :
 \end{Code}
 ```
 
-
 ## License
-
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

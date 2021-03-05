@@ -1,0 +1,143 @@
+\ProvidesFile{cheatsheet}
+
+\usepackage[francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[top=0.4cm, bottom=0.4cm, left=0.5cm, right=0.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{fancybox}
+\usepackage{fancyhdr}
+\usepackage[table]{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{lipsum}
+\usepackage{minted}
+\usepackage{etoolbox}
+
+\tcbuselibrary{skins, breakable}
+
+
+\newcommand{\com}[1]{}	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Definition of the theme and colors %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Color definition
+\definecolor{blue}{RGB}{18, 89, 197}
+\definecolor{white}{RGB}{255, 255, 255}
+\definecolor{grey}{RGB}{128, 128, 128}
+\definecolor{darkBackgroundColor}{RGB}{40, 44, 52}
+\definecolor{darkForegroundColor}{RGB}{220, 223, 228}
+
+% Selection of the theme
+\def\darktheme{}
+
+\ifdefined\darktheme
+
+	\pagecolor{darkBackgroundColor}
+	\color{white}
+	
+	\newcommand{\colorAttenuation}{darkBackgroundColor}
+	\newcommand{\colorText}{darkForegroundColor}
+	\newcommand{\mainColor}{blue}
+
+\else
+
+	\newcommand{\colorAttenuation}{grey!10}
+	\newcommand{\colorText}{black}
+	\newcommand{\mainColor}{blue}
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% Definition of the tcolorbox %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\columnsep}{0.3cm}
+
+\newcommand{\size}{\small}
+\AtBeginEnvironment{Text}{\size}
+
+% Block definition
+\newenvironment{Text}[1]{
+	\tcolorbox[
+	noparskip,
+	breakable,
+	left=1.5mm, right=1.5mm, top=1.5mm, bottom=1.5mm,
+	break at=-\baselineskip/0pt/\textheight,
+	colframe=\mainColor,
+	colback=\colorAttenuation,
+	coltext=\colorText,
+	arc=0mm,
+	adjusted title=\n,
+	fonttitle=\bfseries,
+	title=#1]}
+{\endtcolorbox}
+
+\newenvironment{Note}{
+	\tcolorbox[attach title to upper,
+	after title={\ :\ },
+	breakable,
+	left=1.5mm, right=1.5mm, top=1.5mm, bottom=1.5mm,
+	colback=\mainColor,
+	colframe=\mainColor,
+	sharp corners=northwest,
+	arc=1mm,
+	adjusted title=\n,
+	coltext=white,
+	fonttitle=\bfseries,
+	title=Note]}
+{\endtcolorbox}
+
+\newenvironment{Important}{
+	\tcolorbox[attach title to upper,
+	after title={\ :\ },
+	breakable,
+	left=1.5mm, right=1.5mm, top=1.5mm, bottom=1.5mm,
+	colback=red!80,
+	colframe=red!80,
+	sharp corners=northwest,
+	arc=1mm,
+	adjusted title=\n,
+	coltext=white,
+	fonttitle=\bfseries,
+	title=Important]}
+{\endtcolorbox}
+
+% Definition of the code style for the code tcolorbox
+\newminted[python]{python}{style = vim, breaklines}
+\newminted[php]{php}{style = vim, breaklines}
+\newminted[js]{js}{style = vim, breaklines}
+\newminted[cpp]{cpp}{style = vim, breaklines}
+\newminted[bash]{shell-session}{style = manni, breaklines}
+
+\newtcolorbox[auto counter,number within=section,
+list inside=mypyg]{mintedbox}[1][]{
+	breakable,
+	left=1.5mm, right=1.5mm, top=1.5mm, bottom=1.5mm,
+	colback=black!80,
+	colframe=black!80,
+	sharp corners=northwest,
+	arc=1mm,
+	#1}
+
+\newenvironment{Code}[2][]
+{
+	\def\listingsboxenvironment{#2}
+	\VerbatimEnvironment
+	\begin{mintedbox}[#1]
+		\begin{\listingsboxenvironment}}
+		{
+		\end{\listingsboxenvironment}
+	\end{mintedbox}
+}
+

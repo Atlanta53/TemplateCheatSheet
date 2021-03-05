@@ -1,12 +1,8 @@
 # TemplateCheatsheet
 
----
-
 A template to realize a cheat sheet.
 
 ## Dependencies
-
----
 
 * [python 3.9](https://www.python.org/)
 * [pygments v2.7.2 ](https://github.com/pygments/pygments)
@@ -14,8 +10,6 @@ A template to realize a cheat sheet.
 
 
 ## Usage
-
----
 
 You need to install pygments with pip3 (python) to use the package minted.
 
@@ -47,14 +41,12 @@ To use the template, you just need to add this line after the documentclass defi
 
 ## Theme
 
----
-
 You can set a light and dark theme in the package, for this you just need to (un)comment the line `\def\darktheme{}`.
 
+![Dark theme](https://github.com/Atlanta53/TemplateCheatSheet/blob/main/res/darkTheme.PNG)
+![Light theme](https://github.com/Atlanta53/TemplateCheatSheet/blob/main/res/lightTheme.PNG)
 
 ## Block
-
----
 
 I implemented 4 types of blocks :
 
@@ -94,8 +86,6 @@ I implemented 4 types of blocks :
 
 
 ## License
-
----
 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

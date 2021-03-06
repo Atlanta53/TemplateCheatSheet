@@ -53,10 +53,18 @@ I implemented 4 types of blocks:
 
 ### Text
 
+You can select between two type of texts :
+
 ```
 \begin{Text}{Title}
     ...
 \end{Text}
+```
+
+```
+\begin{TextColor}{Title}{Color}
+    ...
+\end{TextColor}
 ```
 
 ### Note
@@ -81,13 +89,24 @@ To separate a Important block, you can call `\splitImportant`. This will break t
 
 ### Code
 
+#### Minted
+
 > The language implemented are cpp, python, bash, js, PHP.
 
 ```
-\begin{Code}{language}
+\begin{CodeMinted}{language}
     ...
-\end{Code}
+\end{CodeMinted}
 ```
+
+#### Listings
+
+```
+\begin{CodeListings}{language}
+    ...
+\end{CodeListings}
+```
+
 
 ## License
 

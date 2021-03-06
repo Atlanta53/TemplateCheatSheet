@@ -41,7 +41,7 @@
 \definecolor{darkForegroundColor}{RGB}{220, 223, 228}
 
 % Selection of the theme
-\def\darktheme{}
+%\def\darktheme{}
 
 \ifdefined\darktheme
 
@@ -67,8 +67,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setlength{\columnsep}{0.3cm}
 
-\newcommand{\size}{\footnotesize}
+\newcommand{\size}{\small}
 \AtBeginEnvironment{Text}{\size}
+\AtBeginEnvironment{TextColor}{\size}
 
 
 %%%% Definition of the text block %%%%
@@ -188,7 +189,7 @@ list inside=mypyg]{mintedbox}[1][]{
 % - C
 % - command.com
 % - Python etc...
-\newtcblisting{CodeListing}[1]{
+\newtcblisting{CodeListings}[1]{
 	breakable,
 	left=1.5mm, right=1.5mm, top=1.5mm, bottom=1.5mm,
 	colback=black!80,
@@ -202,7 +203,6 @@ list inside=mypyg]{mintedbox}[1][]{
 		language=#1, 
 		keywordstyle=\color{orange!80}\bfseries,
 		commentstyle=\color{grey},
-		identifierstyle=\color{blue},
 		stringstyle=\color{purple},
 		basicstyle=\size\ttfamily,
 		breaklines,

@@ -1,11 +1,12 @@
 \ProvidesFile{cheatsheet}
 
-\usepackage[francais]{babel}
+\usepackage[french]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[top=0.4cm, bottom=0.4cm, left=0.5cm, right=0.5cm]{geometry}
 \usepackage{setspace}
 \usepackage{amssymb}
+\usepackage{amsmath}
 \usepackage{color}
 \usepackage{titlesec}
 \usepackage{enumitem}
@@ -18,6 +19,8 @@
 \usepackage{tcolorbox}
 \usepackage{lipsum}
 \usepackage{etoolbox}
+\usepackage{pifont}
+\usepackage{tabularx}
 
 \usepackage{minted} 
 \usepackage{listings}
@@ -41,7 +44,7 @@
 \definecolor{darkForegroundColor}{RGB}{220, 223, 228}
 
 % Selection of the theme
-%\def\darktheme{}
+\def\darktheme{}
 
 \ifdefined\darktheme
 
@@ -183,8 +186,6 @@ list inside=mypyg]{mintedbox}[1][]{
 	\end{mintedbox}
 }
 
-
-
 %%%% Language :
 % - C
 % - command.com
@@ -213,7 +214,43 @@ list inside=mypyg]{mintedbox}[1][]{
 	}
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% Definition of image and list %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\image}[2]{
+	\begin{center}
+		\includegraphics[width=0.9\linewidth]{#1}
+		\textbf{#2}
+	\end{center}
+}
+
+\newenvironment{List}[1]
+{\begin{itemize}[label=\ding{110}, font=\scriptsize\color{#1}, leftmargin=*]}
+{\end{itemize}}
 
 
+\newcolumntype{Y}{>{\raggedleft\arraybackslash}X}% see tabularx
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Definition of mathematics space %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\U}{\mathbb{U}}
+\newcommand{\M}{\mathcal{M}}	
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\I}{\mathcal{I}}
+\newcommand{\V}{\mathcal{V}}
+\newcommand{\Cc}{\mathcal{C}}
 
 

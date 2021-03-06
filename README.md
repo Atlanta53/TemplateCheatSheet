@@ -106,7 +106,23 @@ To separate a Important block, you can call `\splitImportant`. This will break t
     ...
 \end{CodeListings}
 ```
+## Image and List
 
+### Image
+
+```
+\image{Path}{Title}
+```
+
+### List
+
+```
+\begin{List}{Color}
+    ...
+    \item
+    ...
+\end{List}
+```
 
 ## License
 

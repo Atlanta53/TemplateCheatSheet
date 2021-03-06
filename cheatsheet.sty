@@ -67,13 +67,14 @@
 \newcommand{\size}{\small}
 \AtBeginEnvironment{Text}{\size}
 
-% Block definition
+
+%%%% Definition of the text block %%%%
 \newenvironment{Text}[1]{
 	\tcolorbox[
 	noparskip,
 	breakable,
+	height fixed for=first and middle,
 	left=1.5mm, right=1.5mm, top=1.5mm, bottom=1.5mm,
-	break at=-\baselineskip/0pt/\textheight,
 	colframe=\mainColor,
 	colback=\colorAttenuation,
 	coltext=\colorText,
@@ -83,10 +84,13 @@
 	title=#1]}
 {\endtcolorbox}
 
-\newenvironment{Note}{
+%%%% Definition of the Note block %%%%
+
+\newenvironment{Note}[1]{
 	\tcolorbox[attach title to upper,
 	after title={\ :\ },
 	breakable,
+	height fixed for=first and middle,
 	left=1.5mm, right=1.5mm, top=1.5mm, bottom=1.5mm,
 	colback=\mainColor,
 	colframe=\mainColor,
@@ -95,13 +99,16 @@
 	adjusted title=\n,
 	coltext=white,
 	fonttitle=\bfseries,
-	title=Note]}
+	title=#1]}
 {\endtcolorbox}
 
-\newenvironment{Important}{
+%%%% Definition of the important block %%%%
+
+\newenvironment{Important}[1]{
 	\tcolorbox[attach title to upper,
 	after title={\ :\ },
 	breakable,
+	height fixed for=first and middle,
 	left=1.5mm, right=1.5mm, top=1.5mm, bottom=1.5mm,
 	colback=red!80,
 	colframe=red!80,
@@ -110,7 +117,7 @@
 	adjusted title=\n,
 	coltext=white,
 	fonttitle=\bfseries,
-	title=Important]}
+	title=#1]}
 {\endtcolorbox}
 
 % Definition of the code style for the code tcolorbox
@@ -120,6 +127,7 @@
 \newminted[cpp]{cpp}{style = vim, breaklines}
 \newminted[bash]{shell-session}{style = manni, breaklines}
 
+%%%% Definition of the code block %%%%
 \newtcolorbox[auto counter,number within=section,
 list inside=mypyg]{mintedbox}[1][]{
 	breakable,
@@ -141,3 +149,15 @@ list inside=mypyg]{mintedbox}[1][]{
 	\end{mintedbox}
 }
 
+%%%%  Split part to separate the note and important box %%%%
+\newcommand{\splitNote}{%
+	\hfill
+\end{Note}
+\begin{Note}{}
+}
+
+\newcommand{\splitImportant}{%
+	\hfill
+\end{Important}
+\begin{Important}{}
+}

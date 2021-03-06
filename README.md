@@ -7,6 +7,8 @@ A template to realize a cheat sheet.
 * [python v3.9](https://www.python.org/)
 * [pygments v2.7.2 ](https://github.com/pygments/pygments)
 * [minted v2.5](https://github.com/gpoore/minted)
+* [listings v1.8](https://www.ctan.org/pkg/listings)
+* [tabularx v2.11](https://www.ctan.org/pkg/tabularx)
 
 
 ## Usage
@@ -112,7 +114,7 @@ To separate a Important block, you can call `\splitImportant`. This will break t
 ```
 \begin{Table}{Title}{Arrangment}
     ...
-    . & . & \hline
+    . & . & . \hline
     ...
 \end{Table}
 ```

@@ -17,10 +17,12 @@
 \usepackage{multicol}
 \usepackage{tcolorbox}
 \usepackage{lipsum}
-\usepackage{minted}
 \usepackage{etoolbox}
 
-\tcbuselibrary{skins, breakable}
+\usepackage{minted} 
+\usepackage{listings}
+
+\tcbuselibrary{skins, breakable, listings}
 
 
 \newcommand{\com}[1]{}	
@@ -30,6 +32,7 @@
 %%%%%%%%%%%% Definition of the theme and colors %%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % Color definition
 \definecolor{blue}{RGB}{18, 89, 197}
 \definecolor{white}{RGB}{255, 255, 255}
@@ -64,7 +67,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setlength{\columnsep}{0.3cm}
 
-\newcommand{\size}{\small}
+\newcommand{\size}{\footnotesize}
 \AtBeginEnvironment{Text}{\size}
 
 
@@ -76,6 +79,22 @@
 	height fixed for=first and middle,
 	left=1.5mm, right=1.5mm, top=1.5mm, bottom=1.5mm,
 	colframe=\mainColor,
+	colback=\colorAttenuation,
+	coltext=\colorText,
+	arc=0mm,
+	adjusted title=\n,
+	fonttitle=\bfseries,
+	title=#1]}
+{\endtcolorbox}
+
+%%%% Definition of the text color block %%%%
+\newenvironment{TextColor}[2]{
+	\tcolorbox[
+	noparskip,
+	breakable,
+	height fixed for=first and middle,
+	left=1.5mm, right=1.5mm, top=1.5mm, bottom=1.5mm,
+	colframe=#2,
 	colback=\colorAttenuation,
 	coltext=\colorText,
 	arc=0mm,
@@ -120,6 +139,20 @@
 	title=#1]}
 {\endtcolorbox}
 
+
+%%%%  Split part to separate the note and important box %%%%
+\newcommand{\splitNote}{
+	\hfill
+\end{Note}
+\begin{Note}{}
+}
+
+\newcommand{\splitImportant}{
+	\hfill
+\end{Important}
+\begin{Important}{}
+}
+
 % Definition of the code style for the code tcolorbox
 \newminted[python]{python}{style = vim, breaklines}
 \newminted[php]{php}{style = vim, breaklines}
@@ -138,7 +171,7 @@ list inside=mypyg]{mintedbox}[1][]{
 	arc=1mm,
 	#1}
 
-\newenvironment{Code}[2][]
+\newenvironment{CodeMinted}[2][]
 {
 	\def\listingsboxenvironment{#2}
 	\VerbatimEnvironment
@@ -149,15 +182,38 @@ list inside=mypyg]{mintedbox}[1][]{
 	\end{mintedbox}
 }
 
-%%%%  Split part to separate the note and important box %%%%
-\newcommand{\splitNote}{%
-	\hfill
-\end{Note}
-\begin{Note}{}
+
+
+%%%% Language :
+% - C
+% - command.com
+% - Python etc...
+\newtcblisting{CodeListing}[1]{
+	breakable,
+	left=1.5mm, right=1.5mm, top=1.5mm, bottom=1.5mm,
+	colback=black!80,
+	colframe=black!80,
+	colupper=white,
+	sharp corners=northwest,
+	arc=1mm,
+	listing only,
+	listing options={
+		style=tcblatex,
+		language=#1, 
+		keywordstyle=\color{orange!80}\bfseries,
+		commentstyle=\color{grey},
+		identifierstyle=\color{blue},
+		stringstyle=\color{purple},
+		basicstyle=\size\ttfamily,
+		breaklines,
+		numbers=none,
+	},
+	every listing line={
+		%\textcolor{red}{\small\ttfamily\bfseries>}
+	}
 }
 
-\newcommand{\splitImportant}{%
-	\hfill
-\end{Important}
-\begin{Important}{}
-}
+
+
+
+

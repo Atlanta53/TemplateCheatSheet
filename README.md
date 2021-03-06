@@ -106,6 +106,17 @@ To separate a Important block, you can call `\splitImportant`. This will break t
     ...
 \end{CodeListings}
 ```
+
+### Table
+
+```
+\begin{Table}{Title}{Arrangment}
+    ...
+    . & . & \hline
+    ...
+\end{Table}
+```
+
 ## Image and List
 
 ### Image

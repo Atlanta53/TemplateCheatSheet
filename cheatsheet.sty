@@ -143,6 +143,21 @@
 	title=#1]}
 {\endtcolorbox}
 
+%%%% Definition of the table block %%%%
+
+\newtcolorbox{Table}[2]{
+	tabularx=#2,
+	title=My table,
+	colback=\colorAttenuation,
+	colbacktitle=\colorAttenuation,
+	colframe=black!70,
+	sharp corners=northwest,
+	arc=0.5mm,
+	coltext=\colorText,
+	coltitle=\colorText,
+	fonttitle=\bfseries,
+	title=#1}
+
 
 %%%%  Split part to separate the note and important box %%%%
 \newcommand{\splitNote}{
@@ -185,6 +200,8 @@ list inside=mypyg]{mintedbox}[1][]{
 		\end{\listingsboxenvironment}
 	\end{mintedbox}
 }
+
+
 
 %%%% Language :
 % - C
@@ -232,7 +249,7 @@ list inside=mypyg]{mintedbox}[1][]{
 {\end{itemize}}
 
 
-\newcolumntype{Y}{>{\raggedleft\arraybackslash}X}% see tabularx
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

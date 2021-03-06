@@ -17,27 +17,28 @@ You need to install pygments with pip3 (python) to use the package minted.
 $ pip3 install pygments
 ```
 
-Verify if pygmentize is installed and in your PATH environment with :
+Verify if pygmentize is installed and in your PATH environment with:
 
 ```shell
 $ pygmentize -V
 ```
 
-> If the installation is correct, you will see a message like this : `Pygments version 2.7.2, (c) 2006-2020 by Georg Brandl.`. Otherwise you will need to reboot or to add the ```python\script``` directory in your PATH.
+> If the installation is correct, you will see a message like this: `Pygments version 2.7.2, (c) 2006-2020 by Georg Brandl.`. Otherwise you will need to reboot or to add the ```python\script``` directory in your PATH.
 
-To generate the pdf, you will need to add `-shell-escape` like this :
+To generate the pdf, you will need to add `-shell-escape` like this:
 
 ```bash
 $ pdflatex.exe your_file.tex -shell-escape
 ```
 
-To use the template, you just need to add this line after the documentclass definition :
+To use the template, you just need to add this line after the documentclass definition:
 
 ```
 \usepackage{cheatsheet}
 ```
 
-> Note : The package mutlicols and tcolortab seems to have a problem to determine the height of the file. This may be corrected in newer version. But for now, you will need to pay attention to the arrangement of your blocks.
+> Note: The package mutlicols and tcolortab seems to have a problem to determine the height of the file. This may be corrected in newer versions. 
+> But for now, you will need to pay attention to the arrangement of your blocks. To balance this issue, I've added two manual breaks for the Note and Important block.
 
 ## Theme
 
@@ -48,7 +49,7 @@ You can set a light and dark theme in the package, for this you just need to (un
 
 ## Block
 
-I implemented 4 types of blocks :
+I implemented 4 types of blocks:
 
 ### Text
 
@@ -60,23 +61,27 @@ I implemented 4 types of blocks :
 
 ### Note
 
+To separate a Note block, you can call `\splitNote`. This will break the Note block and start a new one.
+
 ```
-\begin{Note}
+\begin{Note}{Title}
     ...
 \end{Note}
 ```
 
 ### Important
 
+To separate a Important block, you can call `\splitImportant`. This will break the Important block and start a new one.
+
 ```
-\begin{Important}
+\begin{Important}{Title}
     ...
 \end{Important}
 ```
 
 ### Code
 
-> The language implemented are cpp, python, bash, js, php.
+> The language implemented are cpp, python, bash, js, PHP.
 
 ```
 \begin{Code}{language}

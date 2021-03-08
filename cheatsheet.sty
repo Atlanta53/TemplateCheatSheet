@@ -21,11 +21,14 @@
 \usepackage{etoolbox}
 \usepackage{pifont}
 \usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{tikzpagenodes}
 
 \usepackage{minted} 
 \usepackage{listings}
 
-\tcbuselibrary{skins, breakable, listings}
+\tcbuselibrary{skins, breakable, listingsutf8, xparse}
 
 
 \newcommand{\com}[1]{}	
@@ -225,6 +228,9 @@ list inside=mypyg]{mintedbox}[1][]{
 		basicstyle=\size\ttfamily,
 		breaklines,
 		numbers=none,
+		showspaces=false,
+		showstringspaces=false,
+		showtabs=false,
 	},
 	every listing line={
 		%\textcolor{red}{\small\ttfamily\bfseries>}
@@ -249,7 +255,60 @@ list inside=mypyg]{mintedbox}[1][]{
 {\end{itemize}}
 
 
+\newcommand{\codelistings}[2]
+{
+	\tikz[baseline]
+	{
+		\node(rectangle)
+		[
+		rounded corners,
+		fill = black!80, % background color
+		% draw = prussianblue,    % border of box
+		text = white,  % text color
+		inner xsep = 3pt,    % horizontal space between text and border
+		inner ysep = 4pt,    % vertical space between text and border
+		text height = 1ex,    % height of box
+		text depth = 0ex,    % depth of box
+		]{\lstinline[style=tcblatex,
+			language=#1, 
+			keywordstyle=\color{orange!80}\bfseries,
+			commentstyle=\color{grey},
+			stringstyle=\color{purple},
+			basicstyle=\size\ttfamily,
+			breaklines,
+			numbers=none,
+			showspaces=false,
+			showstringspaces=false,
+			showtabs=false]{#2}};
+	}
+}
 
+\newcommand{\codeminted}[2]
+{
+	\tikz[baseline]
+	{
+		\node(rectangle)
+		[
+		rounded corners,
+		fill = black!80, % background color
+		% draw = prussianblue,    % border of box
+		text = white,  % text color
+		inner xsep = 3pt,    % horizontal space between text and border
+		inner ysep = 4pt,    % vertical space between text and border
+		text height = 1ex,    % height of box
+		text depth = 0ex,    % depth of box
+		]{\mintinline{#1}{#2}};
+	}
+}
+
+
+\hypersetup{
+	colorlinks=true,       % false: liens encadrés; true: liens colorés
+	linkcolor=black,          % couleur des liens (ou bordures) internes
+	citecolor=blue,        % couleur des liens (ou bordures) vers bilbio
+	filecolor=blue,      % couleur des liens (ou bordures) vers fichiers
+	urlcolor=orange          % couleur des liens (ou bordures) url
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

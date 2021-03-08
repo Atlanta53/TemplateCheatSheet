@@ -96,17 +96,25 @@ To separate a Important block, you can call `\splitImportant`. This will break t
 > The language implemented are cpp, python, bash, js, PHP.
 
 ```
-\begin{CodeMinted}{language}
+\begin{CodeMinted}{Language}
     ...
 \end{CodeMinted}
+
+or
+
+\codeMinted{Language}{ ... }
 ```
 
 #### Listings
 
 ```
-\begin{CodeListings}{language}
+\begin{CodeListings}{Language}
     ...
 \end{CodeListings}
+
+or
+
+\codeListings{Language}{ ... }
 ```
 
 ### Table

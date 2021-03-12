@@ -49,7 +49,7 @@ You can set a light and dark theme in the package, for this you just need to (un
 ![Dark theme](https://github.com/Atlanta53/TemplateCheatSheet/blob/main/res/darkTheme.PNG)
 ![Light theme](https://github.com/Atlanta53/TemplateCheatSheet/blob/main/res/lightTheme.PNG)
 
-## Block
+## Blocks
 
 I implemented 4 types of blocks:
 

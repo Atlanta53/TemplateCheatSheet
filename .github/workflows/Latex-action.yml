@@ -11,3 +11,4 @@ jobs:
         with:
           root_file: Template.tex
           latexmk_shell_escape: true
+          extra_system_packages: python-pygments

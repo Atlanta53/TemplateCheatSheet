@@ -10,5 +10,5 @@ jobs:
         uses: dante-ev/latex-action@master
         with:
           root_file: Template.tex
-          latexmk_shell_escape: true
+          args: -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode -latexoption=-shell-escape
           extra_system_packages: python-pygments

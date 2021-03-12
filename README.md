@@ -1,6 +1,6 @@
 # TemplateCheatsheet
 
-A template to realize a cheat sheet.
+A template to create a cheat sheet (LaTeX).
 
 ## Dependencies
 

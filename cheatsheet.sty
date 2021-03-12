@@ -14,7 +14,6 @@
 \usepackage{fancyhdr}
 \usepackage[table]{xcolor}
 \usepackage{graphicx}
-\usepackage{listings}
 \usepackage{multicol}
 \usepackage{tcolorbox}
 \usepackage{lipsum}
@@ -150,7 +149,6 @@
 
 \newtcolorbox{Table}[2]{
 	tabularx=#2,
-	title=My table,
 	colback=\colorAttenuation,
 	colbacktitle=\colorAttenuation,
 	colframe=black!70,
@@ -203,8 +201,6 @@ list inside=mypyg]{mintedbox}[1][]{
 		\end{\listingsboxenvironment}
 	\end{mintedbox}
 }
-
-
 
 %%%% Language :
 % - C
